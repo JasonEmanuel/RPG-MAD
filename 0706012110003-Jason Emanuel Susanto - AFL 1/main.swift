@@ -12,11 +12,23 @@ var nameInput : String = ""
 var choiceInput : String = ""
 var returnCInput : String = "s"
 var choiceFInput : String = ""
+var healChoice : String = ""
 var playerHP : Int = 100
 var playerMP : Int = 50
 var potion : Int = 10
 var elixir : Int = 5
 var enemyHP : Int = 1000
+var enemyName : String = ""
+
+var skills : [String] = []
+skills.append("Physical Attack")
+skills.append("Meteor")
+skills.append("Shield")
+
+var enemy : [String] = []
+enemy.append("Troll")
+enemy.append("Golem")
+
 
 openingScreen()
 
@@ -70,9 +82,27 @@ func journeyScreen(){
         }else if choiceInput == "h"{
             healWoundScreen()
         }else if choiceInput == "f"{
-            forestOfTroll()
+            for enemyname in enemy{
+                if enemyname == "Troll" {
+                    print("As you enter the forest, you feel a sense of unease wash over you.")
+                    print("Suddenly, you hear the sound of twigs snapping behind you. You quickly spin around, and find a Troll emerging from the shadows.")
+                    enemyName = enemyname
+                    print("😈Name: \(enemyName)")
+                    print("😈Health: \(enemyHP)")
+                    battleScreen()
+                }
+            }
         }else if choiceInput == "m"{
-            mountainOfGolem()
+            for enemyname in enemy{
+                if enemyname == "Golem" {
+                    print("As you make your way through the rugged mountain terrain, you can feel the chill of the wind biting at your skin.")
+                    print("Suddenly, you hear the sound that makes you freeze in your tracks. That's when you see it - a massive, snarling Golem emerging from the shadows.")
+                    enemyName = enemyname
+                    print("😈Name: \(enemyName)")
+                    print("😈Health: \(enemyHP)")
+                    battleScreen()
+                }
+            }
         }else if choiceInput == "q"{
             quitGame()
         }
@@ -80,7 +110,6 @@ func journeyScreen(){
 }
 
 func playerStatScreen(){
-    while(returnCInput.isEmpty == false){
         print("\nPlayer name : \(nameInput)")
         
         print("\n\(playerHP)/100")
@@ -101,6 +130,12 @@ func playerStatScreen(){
         
         print("\nPress return to go back: ")
         returnCInput = readLine()!
+    switch returnCInput{
+    case "" :
+        journeyScreen()
+    default:
+        print("Just click enter")
+        playerStatScreen()
     }
 }
 
@@ -109,12 +144,51 @@ func healWoundScreen(){
     print("You have \(potion) Potions.")
     
     print("\nAre you sure want to use 1 potion to heal wound? [Y/N]")
+    healChoice = readLine()!.lowercased()
+    switch healChoice {
+    case "y" :
+        if potion > 0 {
+            if playerHP < 100 {
+                playerHP = playerHP + 20
+                if playerHP > 100 {
+                    playerHP = 100
+                }
+                print("You used 1 potion")
+                potion = potion - 1
+                print("Yout HP now is: \(playerHP)")
+                print("\nYou have \(potion) left.")
+            } else {
+                print("Your health is still full.")
+                print("Press [return] to go back")
+                var fullhpheal = readLine()!
+                switch fullhpheal {
+                case "" :
+                    journeyScreen()
+                default:
+                    healWoundScreen()
+                }
+            }
+        }else {
+            print("You have no potion left.")
+            print("Press [return] to go back.")
+            var nopotionleft = readLine()!
+            switch nopotionleft {
+            case "" :
+                journeyScreen()
+            default:
+                healWoundScreen()
+            }
+        }
+    case "n" :
+        print("with your journey.")
+        journeyScreen()
+    default:
+        print("Press Y or N")
+    }
+        
 }
 
-func forestOfTroll(){
-    print("As you enter the forest, you feel a sense of unease wash over you.")
-    print("Suddenly, you hear the sound of twigs snapping behind you. You quickly spin around, and find a Troll emerging    from the shadows.")
-    
+func battleScreen(){
     print("""
     \n😈Name: Troll x1
     😈Health: \(enemyHP)
@@ -141,37 +215,15 @@ func forestOfTroll(){
     }
 }
 
-func mountainOfGolem(){
-    print("As you make your way through the rugged mountain terrain, you can feel the chill of the wind biting at your skin.")
-    print("Suddenly, you hear the sound that makes you freeze in your tracks. That's when you see it - a massive, snarling Golem emerging from the shadows.")
-    
-    print("""
-    \n😈Name: Golem x1
-    😈Health: \(enemyHP)
-    """)
-    
-    print("""
-    Choose your action:
-    [1] Physical Attack. No mana required. Deal 5pt of damage.
-    [2] Meteor. Use 15pt of MP. Deal 50pt of damage.
-    [3] Shield. Use 10pt of MP. Block enemy's attack in 1 turn.
-    
-    [4] Use Potion to heal wound.
-    [5] Scan enemy's vital.
-    [6] Flee from battle.
-    
-    Your choice?
-    """)
-    choiceFInput = readLine()!
-    let numberF = Int(choiceFInput)
-    if numberF == 1 {
-        print("Physical attack")
-    }else if numberF == 2{
-        print("meteor")
-    }
-}
     
 func quitGame(){
     print("Thank you for playing, see you next time!")
     exit(0)
+}
+
+func fleeBattle(){
+    print("You feel that if you don't escape soon, you won't be able to continue the fight.")
+    print("You look around frantically, searching for a way out. You sprint towards the exit, your heart pounding in your chest.")
+    print("You're safe, for now.")
+    print("Press [return] to continue.")
 }
