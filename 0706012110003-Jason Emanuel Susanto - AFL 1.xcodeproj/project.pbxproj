@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		041BE93929AD9DEF00D94E65 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BE93829AD9DEF00D94E65 /* main.swift */; };
+		0449B14529D6662700A5F74F /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449B14429D6662700A5F74F /* Hero.swift */; };
+		0449B14729D668E600A5F74F /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449B14629D668E600A5F74F /* Skill.swift */; };
+		0449B14929D66C8900A5F74F /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449B14829D66C8900A5F74F /* Enemy.swift */; };
+		0449B14B29D66CDA00A5F74F /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449B14A29D66CDA00A5F74F /* Inventory.swift */; };
+		0449B14D29D66D5B00A5F74F /* Health_Potion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449B14C29D66D5B00A5F74F /* Health_Potion.swift */; };
+		0449B14F29D66D6700A5F74F /* Mana_Potion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449B14E29D66D6700A5F74F /* Mana_Potion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +31,12 @@
 /* Begin PBXFileReference section */
 		041BE93529AD9DEF00D94E65 /* 0706012110003-Jason Emanuel Susanto - AFL 1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "0706012110003-Jason Emanuel Susanto - AFL 1"; sourceTree = BUILT_PRODUCTS_DIR; };
 		041BE93829AD9DEF00D94E65 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		0449B14429D6662700A5F74F /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		0449B14629D668E600A5F74F /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		0449B14829D66C8900A5F74F /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		0449B14A29D66CDA00A5F74F /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		0449B14C29D66D5B00A5F74F /* Health_Potion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Health_Potion.swift; sourceTree = "<group>"; };
+		0449B14E29D66D6700A5F74F /* Mana_Potion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mana_Potion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,12 @@
 			isa = PBXGroup;
 			children = (
 				041BE93829AD9DEF00D94E65 /* main.swift */,
+				0449B14429D6662700A5F74F /* Hero.swift */,
+				0449B14629D668E600A5F74F /* Skill.swift */,
+				0449B14829D66C8900A5F74F /* Enemy.swift */,
+				0449B14A29D66CDA00A5F74F /* Inventory.swift */,
+				0449B14C29D66D5B00A5F74F /* Health_Potion.swift */,
+				0449B14E29D66D6700A5F74F /* Mana_Potion.swift */,
 			);
 			path = "0706012110003-Jason Emanuel Susanto - AFL 1";
 			sourceTree = "<group>";
@@ -120,7 +138,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0449B14929D66C8900A5F74F /* Enemy.swift in Sources */,
+				0449B14F29D66D6700A5F74F /* Mana_Potion.swift in Sources */,
+				0449B14729D668E600A5F74F /* Skill.swift in Sources */,
+				0449B14B29D66CDA00A5F74F /* Inventory.swift in Sources */,
 				041BE93929AD9DEF00D94E65 /* main.swift in Sources */,
+				0449B14D29D66D5B00A5F74F /* Health_Potion.swift in Sources */,
+				0449B14529D6662700A5F74F /* Hero.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
