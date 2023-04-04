@@ -18,6 +18,7 @@ var elixir : Int = 5
 var enemyHP : Int = 1000
 var enemyName : String = ""
 var doubleDamage : Bool = false
+var hero = Hero(playerName: nameInput, playerHP: playerHP, multiplier: 2)
 
 var enemy : [String] = []
 enemy.append("Troll")
@@ -106,26 +107,9 @@ func journeyScreen(){
 
 // Function untuk menunjukkan stat dari player
 func playerStatScreen(){
-        print("\nPlayer name : \(nameInput)")
-        
-        print("\n\(playerHP)/100")
-        print("\(playerMP)/50")
-        
-        print("""
-        \nMagic:
-        - Physical Attack. No mana required. Deal 5pt of damage.
-        - Meteor. Use 15pt of MP. Deal 50pt of damage.
-        - Shield. Use 10pt of MP. Block enemy's attack in 1 turn.
-        """)
-        
-        print("""
-        \nItems:
-        - Potion x\(potion). Heal 20pt of your HP.
-        - Elixir x\(elixir). Add 10pt of your MP.
-        """)
-        
-        print("\nPress return to go back: ")
-        returnCInput = readLine()!
+    hero.getPlayerStats(playerName: nameInput, playerHP: playerHP, playerMP: playerMP)
+    print("\nPress return to go back: ")
+    returnCInput = readLine()!
     switch returnCInput{
     case "" :
         journeyScreen()
