@@ -9,15 +9,37 @@ import Foundation
 
 class Inventory {
     var potionName: String
-    var amount: Int
     
-    
-    init(potionName: String, amount: Int) {
+    init(potionName: String) {
         self.potionName = potionName
-        self.amount = amount
-    }
-    
-    func usePotion() {
-        amount -= 1
     }
 }
+
+class Potion: Inventory {
+    var potion: Int
+    
+    init(potionName: String, potion: Int) {
+        self.potion = potion
+        super.init(potionName: potionName)
+    }
+
+    func usePotion(player: Hero) {
+        hero.potion -= 1
+        hero.playerHP += 20
+    }
+}
+
+class Elixir: Inventory {
+    var elixir: Int
+    
+    init(potionName: String, elixir: Int) {
+        self.elixir = elixir
+        super.init(potionName: potionName)
+    }
+    
+    func usePotion(player: Hero) {
+        hero.elixir -= 1
+        hero.playerMP += 10
+    }
+}
+
