@@ -386,7 +386,7 @@ func battleScreen(){
         drinkElixirBattle()
     case "6":
         hero.scanEnemy()
-        print("")
+        print("You scanned \(enemy.enemyName)[\(enemy.enemyType)]'s weakness, your attack deals 2x damage from now on.")
         battleScreen()
     case "7":
         hero.fleeBattle()
