@@ -7,30 +7,49 @@
 
 import Foundation
 
-class Enemy {
-    var enemyName: String
+protocol Enemy {
+    func enemyAttack(player: Hero)
+    func meetBoss(chance: Int)
+    func enemyWin(player: Hero)
+}
+
+class Monster: Enemy{
+    var enemyAttack: Int
     var enemyHP: Int
-    var enemyDamage: Int
+    var enemyName: String
+    var enemyDrop: Int
+    var enemyType: String
     
-    init(enemyName: String, enemyHP: Int, enemyDamage: Int) {
-        self.enemyName = enemyName
+    init(enemyAttack: Int, enemyHP: Int, enemyName: String, enemyDrop: Int, enemyType: String) {
+        self.enemyAttack = enemyAttack
         self.enemyHP = enemyHP
-        self.enemyDamage = enemyDamage
+        self.enemyName = enemyName
+        self.enemyDrop = enemyDrop
+        self.enemyType = enemyType
     }
     
-    func enemyTurn(){
-        
+    func enemyAttack(player: Hero) {
+        print("\(enemyName) attacked you, you lost 10 HP")
+        hero.playerHP -= enemyAttack
     }
     
-    func enemyDrop(){
-        
+    
+    func meetBoss(chance: Int) {
+        if chance > 80 {
+            enemyAttack = 20
+            enemyHP = 1000
+            enemyType = "Buffed"
+        } else {
+            enemyAttack = 10
+            enemyHP = 300
+            enemyType = "Normal"
+        }
     }
     
-    func showEnemy(){
-        
-    }
-    
-    func enemyWin(){
-        
+    func enemyWin(player: Hero) {
+        print("\(enemyName) [\(enemyType)] has just defeated you.")
+        print("Returning to your previous path.")
+        hero.playerHP = 10
+        hero.multiplier = 1
     }
 }
